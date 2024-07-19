@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float flashCoolTime;
 
+    [SerializeField]
+    Vector3 sliderOffset;
+
     public bool canOn = true;//빛을 켤 수 있는지 확인한다.
 
     float playerDir; //이동방향
@@ -27,7 +30,6 @@ public class PlayerController : MonoBehaviour
     bool endBattery = false; //배터리의 방전을 확인한다.
 
     Rigidbody2D playerRb;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +81,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(flashCoolTime);
         canOn = true;
     }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJump = false;

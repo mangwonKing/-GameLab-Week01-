@@ -47,6 +47,7 @@ public class InvisibleObject : MonoBehaviour
             currentCoroutine = StartCoroutine(Fade(spriteRenderer.color.a, 0));
         }
     }
+    
     IEnumerator Fade(float start, float end)
     {
         float t = 0f;

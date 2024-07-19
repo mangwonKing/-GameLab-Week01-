@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Light : MonoBehaviour
 {
     [SerializeField]
     float maxBattery;
-    [SerializeField]
+    //[SerializeField]
     float battery;
     [SerializeField]
-    float warnningBattery; // 퍼센트
+    float warnningBattery; 
     [SerializeField]
     float warnningTime;
+
+    //배터리바
+    [SerializeField]
+    Slider BatteryBar;
 
     Color originColor;
     float originAlpha;
 
+    float batteryPersentage;
     bool isWarn = false;
 
     PlayerController playerController;
@@ -26,6 +32,8 @@ public class Light : MonoBehaviour
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         originColor = spriteRenderer.color;
+        battery = maxBattery;
+        batteryPersentage = 1f;
     }
 
     // Update is called once per frame
@@ -33,12 +41,15 @@ public class Light : MonoBehaviour
     {
         checkOn();
         CheckBattery();
+        SetPower(batteryPersentage);
     }
     void checkOn()
     {
         if(gameObject.activeSelf )
         {
             battery = Mathf.Max(0,battery -Time.deltaTime);
+            CalculatePersent();
+            
             //Debug.Log(battery);
         }
     }
@@ -60,6 +71,12 @@ public class Light : MonoBehaviour
             StartCoroutine(Warnning());
         }
     }
+    void CalculatePersent()
+    {
+        batteryPersentage = battery / maxBattery;
+        Debug.Log(batteryPersentage);
+        
+    }
     IEnumerator Warnning()
     {
         
@@ -68,5 +85,10 @@ public class Light : MonoBehaviour
         spriteRenderer.color = originColor;
 
         Debug.Log("경고!");
+    }
+
+    public void SetPower(float power)
+    {
+        BatteryBar.value = power;
     }
 }
