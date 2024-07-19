@@ -76,6 +76,14 @@ public class PlayerController : MonoBehaviour
         isOn = !isOn; // 상태 반대로
         flashLight.SetActive(isOn);
     }
+    public void setIsOn() //상태 전환
+    {
+        isOn = !isOn;
+    }
+    public void setCanOn()
+    {
+        canOn = !canOn;
+    }
     IEnumerator flashOnTimer()
     {
         yield return new WaitForSeconds(flashCoolTime);
