@@ -28,7 +28,7 @@ public class InvisibleObject : MonoBehaviour
     void Update()
     {
         StateChange();
-        Debug.Log(alpha);
+        //Debug.Log(alpha);
     }
 
     void StateChange()// 발견됨을 검사

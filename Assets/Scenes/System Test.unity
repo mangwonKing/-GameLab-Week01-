@@ -1198,7 +1198,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1120619955}
   - component: {fileID: 1120619956}
-  - component: {fileID: 1120619957}
   m_Layer: 0
   m_Name: Flash
   m_TagString: Untagged
@@ -1274,18 +1273,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1120619957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120619954}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f06e565b0083e9e4c9c245b6b42c4ab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1227623185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1816,6 +1803,7 @@ MonoBehaviour:
   jumpPower: 8
   flashLight: {fileID: 1942515122}
   flashCoolTime: 0.5
+  canOn: 1
 --- !u!1 &1942515122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1827,6 +1815,7 @@ GameObject:
   - component: {fileID: 1942515123}
   - component: {fileID: 1942515124}
   - component: {fileID: 1942515125}
+  - component: {fileID: 1942515126}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -1891,7 +1880,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.28235295}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.1254902}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1949,6 +1938,22 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &1942515126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1942515122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6ab261f617d8a54bb11d526a4518073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBattery: 0
+  battery: 5
+  warnningBattery: 2
+  warnningTime: 0.1
 --- !u!1 &1987924021
 GameObject:
   m_ObjectHideFlags: 0

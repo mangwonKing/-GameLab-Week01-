@@ -17,11 +17,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float flashCoolTime;
 
-    float dir;
+    public bool canOn = true;//빛을 켤 수 있는지 확인한다.
+
+    float playerDir; //이동방향
     
     bool isJump;
-    bool isOn = false;
-    bool canOn = true;
+    bool isOn = false;// 빛의 켜짐을 확인한다.
+    
+    bool endBattery = false; //배터리의 방전을 확인한다.
 
     Rigidbody2D playerRb;
     
@@ -41,8 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        dir = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector3(dir, 0, 0) * speed * Time.deltaTime);
+        playerDir = Input.GetAxis("Horizontal");
+        transform.Translate(new Vector3(playerDir, 0, 0) * speed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space) && !isJump)
         {
             isJump = true;
