@@ -76,7 +76,7 @@ public class Light : MonoBehaviour
     public float CalculatePersent()
     {
         batteryPersentage = battery / maxBattery;
-        Debug.Log(batteryPersentage);
+        //Debug.Log(batteryPersentage);
         return batteryPersentage;
         
 
@@ -84,7 +84,7 @@ public class Light : MonoBehaviour
     public void ChargeBattery() //빛을 받았다!
     {
         battery = Mathf.Min(battery + Time.deltaTime, maxBattery);
-        Debug.Log(batteryPersentage + "퍼센트 충전됨");
+        //Debug.Log(batteryPersentage + "퍼센트 충전됨");
         if(!playerController.canOn)
         {
             playerController.canOn = true;
@@ -100,7 +100,7 @@ public class Light : MonoBehaviour
         originColor.a = originAlpha;
         spriteRenderer.color = originColor;
 
-        Debug.Log("경고!");
+        //Debug.Log("경고!");
     }
 
 }

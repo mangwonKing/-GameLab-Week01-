@@ -38,6 +38,7 @@ public class InvisibleObject : MonoBehaviour
             if(currentCoroutine != null)
                 StopCoroutine(currentCoroutine);
             currentCoroutine = StartCoroutine(Fade(spriteRenderer.color.a, 1));
+           
         }
 
         else //안보이게
@@ -68,10 +69,18 @@ public class InvisibleObject : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isFound = true;
+        if(collision.gameObject.CompareTag("Light"))
+        {
+            isFound = true;
+        }
+        
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isFound = false;
+        if (collision.gameObject.CompareTag("Light"))
+        {
+            isFound = false; 
+        }
+    
     }
 }
