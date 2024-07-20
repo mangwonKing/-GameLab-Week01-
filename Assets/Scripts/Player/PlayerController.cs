@@ -26,7 +26,9 @@ public class PlayerController : MonoBehaviour
     public bool canOn = true;//빛을 켤 수 있는지 확인한다.
 
     float playerDir; //이동방향
-    
+    float originSpeed;
+
+
     bool isJump;
     bool isOn = false;// 빛의 켜짐을 확인한다.
     bool isCrouch = false;
@@ -39,6 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         isJump = false;
         playerRb = GetComponent<Rigidbody2D>();
+        originSpeed = speed;
     }
 
     // Update is called once per frame
@@ -121,6 +124,22 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void SetSpeedDown(float change)
+    {
+        speed /= change;
+    }
+    public void SetSpeedUp(float change)
+    {
+        speed *= change;
+    }
+    public void SetSpeedZero()
+    {
+        speed = 0;
+    }
+    public void SetSpeedOri()
+    {
+        speed = originSpeed;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJump = false;

@@ -4273,6 +4273,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6215528919242470562, guid: d5fe6d12d355b6f47a3782c4401a94ee, type: 3}
+      propertyPath: chageSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6458794140975815955, guid: d5fe6d12d355b6f47a3782c4401a94ee, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

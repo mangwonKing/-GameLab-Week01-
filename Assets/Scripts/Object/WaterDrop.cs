@@ -10,15 +10,6 @@ public class WaterDrop : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-        //if(collision.gameObject.CompareTag("Player"))
-        //{
-
-        //}
 
     }
-
-    //IEnumerator HitWater(GameObject player)
-    //{
-    //    player.GetComponent<PlayerController>();
-    //}
 }

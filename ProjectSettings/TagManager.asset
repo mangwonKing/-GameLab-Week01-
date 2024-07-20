@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Invisible
   - Obstacle
+  - Water
   layers:
   - Default
   - TransparentFX
