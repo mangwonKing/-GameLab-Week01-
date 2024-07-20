@@ -56,7 +56,20 @@ public class PlayerStat : MonoBehaviour
 
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Color originColor = spriteRenderer.color;
+            spriteRenderer.color = Color.red;
+            StartCoroutine(HitColorChage(originColor)); // 색상 변경
+            hp = Mathf.Max(hp - 1, 0); // 체력 깎기
+            Debug.Log("체력 : " + hp);
 
+            playerController.SetSpeedZero();
+            StartCoroutine(SpeedChangeObst());
+        }
+    }
     IEnumerator HitColorChage(Color origin)
     {
         yield return new WaitForSeconds(0.25f);

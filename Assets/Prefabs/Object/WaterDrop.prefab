@@ -133,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Obj: {fileID: 6242606458735535613, guid: 3727d50fa1017814cb752524aeb3158d, type: 3}
+  fallingCycle: 3
 --- !u!1 &2537357171111154133
 GameObject:
   m_ObjectHideFlags: 0
