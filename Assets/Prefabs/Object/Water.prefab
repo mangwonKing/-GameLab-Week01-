@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibleSec: 5
-  visibleSec: 1
+  visibleSec: 0.125
 --- !u!114 &3751232255452067553
 MonoBehaviour:
   m_ObjectHideFlags: 0

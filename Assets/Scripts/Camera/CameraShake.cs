@@ -12,14 +12,20 @@ public class CameraShake : MonoBehaviour
 
     Vector3 originPos;
 
-
+    bool isFalling = false;
     void Start()
     {
         originPos = transform.localPosition;
     }
     public void OnShake()
     {
-        StartCoroutine(Shake());
+        if(!isFalling)
+        {
+            Debug.Log(" 카메라 흔드는중");
+            isFalling = true;
+            StartCoroutine(Shake());
+        }
+        
     }
     public IEnumerator Shake()
     {
@@ -33,6 +39,7 @@ public class CameraShake : MonoBehaviour
             yield return null;
         }
         transform.localPosition = originPos;
+        isFalling = false;
 
     }
 }

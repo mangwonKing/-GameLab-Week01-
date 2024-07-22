@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invisibleSec: 5
-  visibleSec: 2
+  visibleSec: 0.125
 --- !u!70 &8262636283234142277
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

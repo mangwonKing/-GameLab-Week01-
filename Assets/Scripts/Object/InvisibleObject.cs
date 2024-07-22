@@ -15,10 +15,12 @@ public class InvisibleObject : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Color initColor;
     bool isFound = false;
+    
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        
         initColor = GetComponent<SpriteRenderer>().color;
         initColor.a = alpha;
         GetComponent<SpriteRenderer>().color = initColor;

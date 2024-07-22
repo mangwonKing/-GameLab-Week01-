@@ -28,7 +28,8 @@ public class Light : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>(); // 성능상으로 좋다.
+        //Debug.Log(GameObject.FindGameObjectWithTag("Player").name);
         spriteRenderer = GetComponent<SpriteRenderer>();
         originColor = spriteRenderer.color;
         battery = maxBattery;
@@ -46,10 +47,11 @@ public class Light : MonoBehaviour
     }
     void checkOn()
     {
-        if(gameObject.activeSelf )
+        if(gameObject.activeSelf )//;
         {
             battery = Mathf.Max(0,battery -Time.deltaTime);
-            //Debug.Log(battery);
+            //ui 이벤트 공부
+            //Debug.Log(battery + "아아아");
         }
     }
     void CheckBattery()

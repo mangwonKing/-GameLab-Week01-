@@ -11,11 +11,15 @@ public class BatMove : MonoBehaviour
     [SerializeField]
     float speed = 2f;
 
+    [SerializeField]
+    float runawayTime = 2f;
+
     private Vector2 targetPos; // 목표지점
     private Vector2 previousPos; //출발한 포인트 저장하기
 
     //public float rotate_offset = 90;
 
+    bool isStop = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +34,7 @@ public class BatMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(patrollPoint.Count > 0)
+        if(patrollPoint.Count > 0 && !isStop)
         {
             float degree =Vector2.Angle(transform.position, targetPos);
 
@@ -50,9 +54,32 @@ public class BatMove : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Light"))
         {
-            targetPos = previousPos;
+            isStop = true;
+            
+            StartCoroutine(DetectingCount());
             Debug.Log("악 빛 무서워!");
 
         }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Light"))
+        {
+            isStop = false;
+            StopCoroutine(DetectingCount());
+        }
+            
+    }
+    void Runaway()
+    {
+        isStop = false;
+        targetPos = previousPos; // 도망가는 방향 
+    }
+    IEnumerator DetectingCount()
+    {
+        yield return new WaitForSeconds(runawayTime);
+        Runaway();//시간 지나면 도망가기 
+
+        
     }
 }
