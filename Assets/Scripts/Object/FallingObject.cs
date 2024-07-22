@@ -35,7 +35,7 @@ public class FallingObject : MonoBehaviour
                 cameraShake.OnShake();
             }
             
-            Debug.Log(fallingTime + "초 뒤 떨어집니다.");
+            //Debug.Log(fallingTime + "초 뒤 떨어집니다.");
             StartCoroutine(FallingObj());
         }
     }

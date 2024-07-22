@@ -13,7 +13,8 @@ public class Light : MonoBehaviour
     float warnningBattery; 
     [SerializeField]
     float warnningTime;
-
+    [SerializeField]
+    float chargeTime = 1f;
     
 
     Color originColor;
@@ -21,14 +22,15 @@ public class Light : MonoBehaviour
 
 
     public float batteryPersentage;
-    bool isWarn = false;
 
     PlayerController playerController;
     SpriteRenderer spriteRenderer;
+    
     // Start is called before the first frame update
     void Start()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>(); // 성능상으로 좋다.
+        
         //Debug.Log(GameObject.FindGameObjectWithTag("Player").name);
         spriteRenderer = GetComponent<SpriteRenderer>();
         originColor = spriteRenderer.color;
@@ -66,14 +68,6 @@ public class Light : MonoBehaviour
             Debug.Log("후레쉬 배터리 방전!");
         }
         
-        if (warnningBattery > battery && !isWarn) // 경고를 했는지
-        {
-            isWarn = true;
-            originAlpha = spriteRenderer.color.a;
-            originColor.a = 0;
-            spriteRenderer.color = originColor;
-            StartCoroutine(Warnning());
-        }
     }
     public float CalculatePersent()
     {
@@ -85,7 +79,7 @@ public class Light : MonoBehaviour
     }
     public void ChargeBattery() //빛을 받았다!
     {
-        battery = Mathf.Min(battery + Time.deltaTime, maxBattery);
+        battery = Mathf.Min(battery + Time.deltaTime * chargeTime, maxBattery);
         //Debug.Log(batteryPersentage + "퍼센트 충전됨");
         if(!playerController.canOn)
         {
@@ -95,6 +89,14 @@ public class Light : MonoBehaviour
     public void SetPersentage(float per)
     {
         batteryPersentage = per;
+    }
+    public void SetBatteryDown(float n)
+    {
+        battery = Mathf.Max(battery - n, 0);
+    }
+    public float GetBattery()
+    {
+        return battery;
     }
     IEnumerator Warnning()
     {

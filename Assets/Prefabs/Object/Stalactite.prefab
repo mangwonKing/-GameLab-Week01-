@@ -1147,7 +1147,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5361231690804121150}
-  - component: {fileID: 760481073011314056}
   - component: {fileID: 2679068442826952125}
   m_Layer: 0
   m_Name: FallPoint
@@ -1172,19 +1171,6 @@ Transform:
   - {fileID: 7239052996681140819}
   m_Father: {fileID: 5351720343780312291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &760481073011314056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8954788887511267038}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 077a2e15c779ace46a3e232e722b48df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Stone: {fileID: 4356707309064604282, guid: cf98ae0b857a503469fc1127a1fad0ae, type: 3}
 --- !u!114 &2679068442826952125
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1727,9 +1727,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2230546970394460397}
   - component: {fileID: 7023677024011061904}
+  - component: {fileID: 4518608737403608921}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Obstacle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1742,7 +1743,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5191588268332778409}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.48825574, w: 0.87270063}
+  m_LocalRotation: {x: 0, y: 0, z: -0.48825565, w: 0.8727007}
   m_LocalPosition: {x: 15.35, y: 2.46, z: 0}
   m_LocalScale: {x: 0.35477, y: 0.35477, z: 0.35477}
   m_ConstrainProportionsScale: 0
@@ -1801,6 +1802,25 @@ PolygonCollider2D:
       - {x: 1.0972376, y: -3.9449773}
       - {x: 3.077642, y: 3.4327712}
   m_UseDelaunayMesh: 0
+--- !u!114 &4518608737403608921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191588268332778409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996d81248878c7148be01479b762837e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrollPoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 8
+  runawayTime: 2
 --- !u!1 &5393695633821086439
 GameObject:
   m_ObjectHideFlags: 0

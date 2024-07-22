@@ -58,7 +58,6 @@ public class BatMove : MonoBehaviour
             
             StartCoroutine(DetectingCount());
             Debug.Log("¾Ç ºû ¹«¼­¿ö!");
-
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

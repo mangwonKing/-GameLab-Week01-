@@ -14,6 +14,8 @@ public class BatteryBar : MonoBehaviour
 
     Transform myTransform;
 
+
+
     float persentageToLight;
     private void Start()
     {

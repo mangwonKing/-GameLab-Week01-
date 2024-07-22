@@ -7,9 +7,17 @@ public class SunLight : MonoBehaviour
     bool InPlayer = false;
 
     Light playerLight;
+    
+
     private void Start()
     {
-        playerLight = GameObject.Find("Flash").transform.GetChild(0).GetComponent<Light>();
+        //playerLight = GameObject.Find("Flash").transform.GetComponentInChildren<Light>(true);
+
+        GameObject go = GameObject.Find("Flash"); //이름주의할것
+        Debug.Log(go.name);
+        playerLight = go.transform.GetComponentInChildren<Light>(true);
+        Debug.Log(playerLight == null);
+        //Debug.Log("플레이어 라이트 이름 : " + playerLight.name);
     }
     void Update()
     {
