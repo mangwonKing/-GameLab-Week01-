@@ -1820,7 +1820,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 8
-  runawayTime: 2
+  runawayTime: 1
 --- !u!1 &5393695633821086439
 GameObject:
   m_ObjectHideFlags: 0

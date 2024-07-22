@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float crouchHeight; //숙이고 일어날 때 변동시킬 pos;
 
+    [SerializeField]
+    Transform restartPos;
     public bool canOn = true;//빛을 켤 수 있는지 확인한다.
 
     float playerDir; //이동방향
@@ -33,12 +36,17 @@ public class PlayerController : MonoBehaviour
     bool isOn = false;// 빛의 켜짐을 확인한다.
     bool isCrouch = false;
 
+    public bool isRestart = false;
    // bool endBattery = false; //배터리의 방전을 확인한다.
 
     Rigidbody2D playerRb;
     // Start is called before the first frame update
     void Start()
     {
+        if(isRestart)
+        {
+            transform.position = restartPos.position;
+        }
         isJump = false;
         playerRb = GetComponent<Rigidbody2D>();
         originSpeed = speed;
@@ -50,6 +58,15 @@ public class PlayerController : MonoBehaviour
         Move();
         Crouch();
         TurnLight();
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
+            isRestart = true;
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void Move()
@@ -111,6 +128,7 @@ public class PlayerController : MonoBehaviour
                 originPos.y -= crouchHeight;
                 transform.localPosition = originPos;
                 isCrouch = true;
+                speed /= 2;
             }
             else
             {
@@ -119,6 +137,7 @@ public class PlayerController : MonoBehaviour
                 originPos.y += crouchHeight;
                 transform.localPosition = originPos;
                 isCrouch = false;
+                speed *= 2;
             }
         }
         
@@ -144,4 +163,5 @@ public class PlayerController : MonoBehaviour
     {
         isJump = false;
     }
+    // 숙이는 공간에 대해서 jump랑 crouch 를 하지 못하게 하자
 }

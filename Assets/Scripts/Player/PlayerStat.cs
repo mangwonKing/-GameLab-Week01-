@@ -18,7 +18,7 @@ public class PlayerStat : MonoBehaviour
 
     public bool isHit = false;
 
-    int diamond = 0;
+    public int diamond = 0;
 
     Light flashLight;
     SpriteRenderer spriteRenderer;
